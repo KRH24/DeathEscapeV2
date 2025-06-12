@@ -1,33 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class FollowPlayerAI : MonoBehaviour
 {
-	
-		public Transform player;
-		private NavMeshAgent navMeshAgent;
-    
-    
-    
-		// Start is called before the first frame update
-		void Start()
-		{
-			navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    public Transform player;
+    public float speed = 5f;
+    private Rigidbody rb;
 
-		}
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
 
-		// Update is called once per frame
-		void Update()
-		{
-			if(player != null){
-				navMeshAgent.SetDestination(player.position); 
-			}
-			else if (!navMeshAgent.isOnNavMesh)
-			{
-				Debug.LogWarning("NavMeshAgent is not on the NavMesh.");
-			}
-		}
+        // Optional: Smooth movement and better collision handling
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
+    void FixedUpdate() // Use FixedUpdate for physics
+    {
+        if (player != null)
+        {
+            Vector3 direction = (player.position - transform.position).normalized;
+
+            
+            Vector3 newPosition = rb.position + direction * speed * Time.fixedDeltaTime;
+            rb.MovePosition(newPosition);
+
+            
+            // rb.AddForce(direction * speed, ForceMode.Acceleration);
+        }
+    }
+}

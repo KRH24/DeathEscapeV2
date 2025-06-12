@@ -47,7 +47,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             DamageThershold -= level1PigoenAttack;
-            Debug.log("enemy has hit player"); 
+            Debug.Log("enemy has hit player"); 
         }
     }
 
