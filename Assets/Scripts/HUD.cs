@@ -7,7 +7,7 @@ public class NewBehaviourScript : MonoBehaviour
 	
 	public float DamageThershold = 40f; 
 	public GameObject Enemy; 
-	public float level1ZombieAttack = 20f;
+	public float level1PigoenAttack = 20f;
 	public float level1SkeletonAttack = 25f;
 	
     
@@ -28,7 +28,7 @@ public class NewBehaviourScript : MonoBehaviour
     // OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.
     protected void OnCollisionEnter(Collision other)
     {
-        DamageThershold -= level1ZombieAttack; 
+        DamageThershold -= level1PigoenAttack; 
         //DamageThershold -= level1SkeletonAttack; 
 	}
 	
@@ -46,7 +46,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            DamageThershold -= level1ZombieAttack; 
+            DamageThershold -= level1PigoenAttack;
+            Debug.log("enemy has hit player"); 
         }
     }
 
