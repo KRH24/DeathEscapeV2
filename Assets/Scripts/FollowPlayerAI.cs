@@ -12,7 +12,7 @@ public class FollowPlayerAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Optional: Smooth movement and better collision handling
+        
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
