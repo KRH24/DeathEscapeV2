@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class NextPart : MonoBehaviour
 {
+
+	public void StartGame() {
+	
+SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+}
 	
 	
-	void OnTriggerEnter(Collider other){
-		
-		if(other.CompareTag("Player")){
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		}
-	}
 }
