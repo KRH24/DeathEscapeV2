@@ -5,7 +5,9 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
 	
-	public float DamageThershold = 40f; 
+	public float DamageThershold = 40f;
+    public int lives = 40;
+    public GameObject[] HealthImages;
 	public GameObject Enemy; 
 	public float level1PigoenAttack = 20f;
 	public float level1SkeletonAttack = 25f;
@@ -25,29 +27,24 @@ public class NewBehaviourScript : MonoBehaviour
 	    
     }
 
-    // OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider.
-    protected void OnCollisionEnter(Collision other)
-    {
-        DamageThershold -= level1PigoenAttack; 
-        //DamageThershold -= level1SkeletonAttack; 
-	}
-	
 
-
-// OnCollisionExit is called when this collider/rigidbody has stopped touching another rigidbody/collider.
-    protected void OnCollisionExit(Collision other)
-    {
-        // Reset the damage threshold or perform any other logic when exiting collision
-        DamageThershold = 40f; 
-    }
-    
     // OnTriggerEnter is called when the Collider other enters the trigger.
     protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+
+            if (lives <= 0)
+            {
+                Destory(gameObject);
+            }
+            else
+            {
             DamageThershold -= level1PigoenAttack;
-            Debug.Log("enemy has hit player"); 
+            Debug.Log("enemy has hit player");
+            lives -= 1;
+            HealthImages[lives].SetActive(false); 
+            }
         }
     }
 
