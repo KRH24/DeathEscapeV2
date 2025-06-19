@@ -7,9 +7,10 @@ public class FowardFlashStep : MonoBehaviour
 	
 	public Transform Player;
 	public Rigidbody rb;
+	public float forwardStepForce = 75f;
 	//bool hasPressed = false; 
-	
-	
+
+
 	private float lastLapTime = 0f; 
 	private float threshold = 0.3f;
   
@@ -24,8 +25,8 @@ public class FowardFlashStep : MonoBehaviour
 			float CurrentTime = Time.time;
 	    	
 			if(CurrentTime - lastLapTime <= threshold){
-	    	
-				Vector3 fowardDash = Player.forward * 75f;
+
+				Vector3 fowardDash = Player.forward * forwardStepForce;
 				rb.AddForce( fowardDash, ForceMode.Impulse);
 				lastLapTime = 0f;
 		    

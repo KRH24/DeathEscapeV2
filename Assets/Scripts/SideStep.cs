@@ -7,6 +7,7 @@ public class Sidestep : MonoBehaviour
 	
 	public Transform Player;
 	public Rigidbody rb;
+	public float sideStepForce = 50f;
 	bool hasPressed = false; 
 	int count = 0;
 	
@@ -25,7 +26,7 @@ public class Sidestep : MonoBehaviour
 	    	
 	    	if(CurrentTime - lastLapTime <= threshold){
 	    	
-		    	Vector3 sidestep = Player.right * -50f;
+		    	Vector3 sidestep = Player.right * -sideStepForce;
 		    	rb.AddForce( sidestep, ForceMode.Impulse);
 		    lastLapTime = 0f;
 		    
@@ -46,7 +47,7 @@ public class Sidestep : MonoBehaviour
 	    	
 			    if(CurrentTime - lastLapTime <= threshold){
 	    	
-				    Vector3 sidestep = Player.right * 50f;
+				    Vector3 sidestep = Player.right * sideStepForce;
 				    rb.AddForce( sidestep, ForceMode.Impulse);
 				    lastLapTime = 0f;
 		    
