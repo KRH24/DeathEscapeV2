@@ -6,51 +6,39 @@ public class NewBehaviourScript : MonoBehaviour
 {
 	
 	public float DamageThershold = 40f;
-    public int lives = 40;
+    public int lives = 34;
     public GameObject[] HealthImages;
 	public GameObject Enemy; 
 	public float level1PigoenAttack = 20f;
 	public float level1SkeletonAttack = 25f;
 	
-    
-	
-	
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-	    
-    }
 
 
     // OnTriggerEnter is called when the Collider other enters the trigger.
-    protected void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
 
             if (lives <= 0)
             {
-                Destory(gameObject);
+                Destroy(gameObject);
             }
             else
             {
-            DamageThershold -= level1PigoenAttack;
-            Debug.Log("enemy has hit player");
-            lives -= 1;
-            HealthImages[lives].SetActive(false); 
+                //DamageThershold -= level1PigoenAttack;
+                Debug.Log("enemy has hit player");
+                lives -= 1;
+                //HealthImages[lives].GetComponent<RawImage>().enabled = false;
+                HealthImages[lives].SetActive(false);
+                Debug.Log("lives left: " + lives);
             }
         }
     }
 
 
     // OnTriggerExit is called when the Collider other has stopped touching the trigger.
-    protected void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
