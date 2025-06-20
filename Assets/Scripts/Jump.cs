@@ -6,6 +6,9 @@ public class Jump : MonoBehaviour
 {
 	private bool wantJump = false; 
 	private bool isGrounded;
+	private int jumpCount = 0;
+	private int maxJumps = 1;
+
 	public float vert;
 	public Transform player; 
 	public Rigidbody rb;
@@ -22,15 +25,19 @@ public class Jump : MonoBehaviour
 
 	void FixedUpdate(){
 		isGrounded = Physics.Raycast(player.position, Vector3.down, 1.1f);
-		if (wantJump && isGrounded)
+
+		if (isGrounded)
 		{
-			rb.AddForce(Vector3.up * vert, ForceMode.Impulse);
-			wantJump = false;
+			jumpCount = 0;
 		}
-		else
+		if (wantJump && jumpCount < maxJumps)
 		{
-			wantJump = false; // prevent stuck jump input
-		}	
+			rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+			rb.AddForce(Vector3.up * vert, ForceMode.Impulse);
+			jumpCount++;
+		}
+		
+		wantJump = false; // prevent stuck jump input	
 	}
 
 }
