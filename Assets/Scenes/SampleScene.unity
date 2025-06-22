@@ -3680,40 +3680,40 @@ MonoBehaviour:
   DamageThershold: 40
   lives: 34
   HealthImages:
-  - {fileID: 1725231538}
-  - {fileID: 1671441643}
-  - {fileID: 824619796}
-  - {fileID: 879345121}
-  - {fileID: 1136127815}
-  - {fileID: 297299334}
-  - {fileID: 1566245418}
-  - {fileID: 1953528627}
-  - {fileID: 1928598843}
-  - {fileID: 1165048796}
-  - {fileID: 1185805810}
-  - {fileID: 941085348}
-  - {fileID: 282389709}
-  - {fileID: 655657314}
-  - {fileID: 1441100832}
-  - {fileID: 467036084}
-  - {fileID: 419810907}
-  - {fileID: 1805857818}
-  - {fileID: 1095886227}
-  - {fileID: 1619807140}
-  - {fileID: 315360006}
-  - {fileID: 114655666}
-  - {fileID: 2039160568}
-  - {fileID: 1094082691}
-  - {fileID: 540448625}
-  - {fileID: 78606810}
-  - {fileID: 2014843838}
-  - {fileID: 1358308070}
-  - {fileID: 388395877}
-  - {fileID: 834256465}
-  - {fileID: 1433380155}
-  - {fileID: 1366482083}
-  - {fileID: 1902836337}
   - {fileID: 145593332}
+  - {fileID: 1902836337}
+  - {fileID: 1366482083}
+  - {fileID: 1433380155}
+  - {fileID: 834256465}
+  - {fileID: 388395877}
+  - {fileID: 1358308070}
+  - {fileID: 2014843838}
+  - {fileID: 78606810}
+  - {fileID: 540448625}
+  - {fileID: 1094082691}
+  - {fileID: 2039160568}
+  - {fileID: 114655666}
+  - {fileID: 315360006}
+  - {fileID: 1619807140}
+  - {fileID: 1095886227}
+  - {fileID: 1805857818}
+  - {fileID: 419810907}
+  - {fileID: 467036084}
+  - {fileID: 1441100832}
+  - {fileID: 655657314}
+  - {fileID: 282389709}
+  - {fileID: 941085348}
+  - {fileID: 1185805810}
+  - {fileID: 1165048796}
+  - {fileID: 1928598843}
+  - {fileID: 1953528627}
+  - {fileID: 1566245418}
+  - {fileID: 297299334}
+  - {fileID: 1136127815}
+  - {fileID: 879345121}
+  - {fileID: 824619796}
+  - {fileID: 1671441643}
+  - {fileID: 1725231538}
   Enemy: {fileID: 1257041054}
   level1PigoenAttack: 20
   level1SkeletonAttack: 25
