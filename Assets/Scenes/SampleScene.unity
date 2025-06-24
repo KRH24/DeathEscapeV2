@@ -3716,8 +3716,9 @@ MonoBehaviour:
   - {fileID: 1671441643}
   - {fileID: 1725231538}
   Enemy: {fileID: 1257041054}
-  level1PigoenAttack: 20
-  level1SkeletonAttack: 25
+  level1PigoenAttack: 1
+  level1SkeletonAttack: 7
+  hitCooldown: 1
 --- !u!114 &1548648453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,12 +3731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808da6217ed95b54089365a007fb6de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTicks: 32
-  currentTicks: 0
-  diamonds:
-  - {fileID: 0}
-  - {fileID: 0}
-  diamondStates: []
 --- !u!1 &1566245418
 GameObject:
   m_ObjectHideFlags: 0
