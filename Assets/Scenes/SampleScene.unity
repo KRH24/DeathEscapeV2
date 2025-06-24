@@ -3715,8 +3715,9 @@ MonoBehaviour:
   - {fileID: 1671441643}
   - {fileID: 1725231538}
   Enemy: {fileID: 1257041054}
-  level1PigoenAttack: 20
-  level1SkeletonAttack: 25
+  level1PigoenAttack: 10
+  level1SkeletonAttack: 7
+  hitCooldown: 1
 --- !u!1 &1566245418
 GameObject:
   m_ObjectHideFlags: 0
