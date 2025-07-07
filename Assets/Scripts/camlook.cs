@@ -20,6 +20,7 @@ public class CamLook : MonoBehaviour
 		float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 		float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
+
 		// Adjust vertical (up/down) camera rotation
 		xRotation -= mouseY;
 		xRotation = Mathf.Clamp(xRotation, -90f, 90f); //keeps cam from flipping
@@ -29,6 +30,8 @@ public class CamLook : MonoBehaviour
 
 		// Rotate the player body left/right
 		player.Rotate(Vector3.up * mouseX);
+
+		
 	}
 
 
