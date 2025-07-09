@@ -12,7 +12,8 @@ public class clicked : MonoBehaviour
 	public Transform TransBat;
 	private bool isFrozen = false; 
 	private Vector3 ogBatPosition; 
-	private Quaternion ogBatRotation; 
+	private Quaternion ogBatRotation;
+	public Animator batAnimation;
 	
 	
 	void Start(){
@@ -23,7 +24,10 @@ public class clicked : MonoBehaviour
 		
 	}
 	
-	void OnMouseDown(){
+	
+	void Update(){
+		
+		if(Input.GetMouseButtonDown(0)){
 		
 		if(isFrozen){
 			
@@ -45,25 +49,24 @@ public class clicked : MonoBehaviour
 		isFrozen = true;
 		
 	}
-	
-	void Update(){
 		
-		if(isFrozen == true && Input.GetKey(KeyCode.Escape)){
-		
-		
-			//player.GetComponent<FPSController>().enabled = true;
-			player.GetComponent<Rigidbody>().isKinematic = false; 
-			Bat.GetComponent<Animator>().Rebind();
-			Bat.GetComponent<Animator>().Update(0f);
-			Bat.GetComponent<Animator>().enabled = false;
-			//resetArms = true;
-			TransBat.position = ogBatPosition;//might want to set it equal to cam position
-			TransBat.rotation = ogBatRotation;//might want to set it equal to cam position
-			
-			isFrozen = false;
-			StartCoroutine(Reset());
-			
-		}
+		if (isFrozen == true && Input.GetKey(KeyCode.Escape))
+	{
+
+
+		//player.GetComponent<FPSController>().enabled = true;
+		player.GetComponent<Rigidbody>().isKinematic = false;
+		Bat.GetComponent<Animator>().Rebind();
+		Bat.GetComponent<Animator>().Update(0f);
+		Bat.GetComponent<Animator>().enabled = false;
+		//resetArms = true;
+		TransBat.position = ogBatPosition;//might want to set it equal to cam position
+		TransBat.rotation = ogBatRotation;//might want to set it equal to cam position
+
+		isFrozen = false;
+		StartCoroutine(Reset());
+
+	}
 		
 		
 		
