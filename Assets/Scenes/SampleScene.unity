@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1548648448}
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 5, z: 0}
 --- !u!1 &348664826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,7 +2839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1257041055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,7 +2937,7 @@ Transform:
   m_GameObject: {fileID: 1257041054}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.62, y: 13.474, z: -23.93}
+  m_LocalPosition: {x: 62.43, y: 13.474, z: -23.22}
   m_LocalScale: {x: 1.792, y: 1.792, z: 1.792}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4887,14 +4887,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1548648448}
     m_Modifications:
-    - target: {fileID: 3434916664115186980, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: Bat
-      value: 
-      objectReference: {fileID: 8139197530653314863, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
     - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
       propertyPath: cam
       value: 
@@ -4904,32 +4896,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1548648442}
     - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: batOffset.x
+      propertyPath: armOffset.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
+      propertyPath: armOffset.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
+      propertyPath: armOffset.z
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: batOffset.y
-      value: 0
+      propertyPath: batOffset.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: batOffset2.y
-      value: 90
+      propertyPath: armOffset2.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
+      propertyPath: armOffset2.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
+      propertyPath: armOffset2.z
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8139197530653314863, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
       propertyPath: m_Name
       value: Bat3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917107107957020053, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0073233084
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917107107957020053, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.0073233093
-      objectReference: {fileID: 0}
-    - target: {fileID: 8917107107957020053, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.007323309
       objectReference: {fileID: 0}
     - target: {fileID: 8917107107957020053, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
       propertyPath: m_LocalPosition.x

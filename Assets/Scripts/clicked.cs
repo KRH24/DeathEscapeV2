@@ -6,10 +6,11 @@ public class clicked : MonoBehaviour
 {
     public GameObject player;
 	public Transform cam;
-	[SerializeField] public Vector3 batOffset;
-	[SerializeField] public Vector3 batOffset2;
+	[SerializeField] public Vector3 armOffset;
+	[SerializeField] public Vector3 armOffset2;
 	public GameObject Bat; 
 	public Transform TransBat;
+	private bool isFrozen = false; 
 	private Vector3 ogBatPosition; 
 	private Quaternion ogBatRotation;
 	public Animator batAnimation;
@@ -18,8 +19,8 @@ public class clicked : MonoBehaviour
 	void Start(){
 		
 		
-		TransBat.position = cam.position + cam.rotation * batOffset;
-		TransBat.rotation = cam.rotation * Quaternion.Euler(batOffset2);
+		TransBat.position = cam.position + cam.rotation * armOffset;
+		TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
 		
 	}
 	
@@ -30,24 +31,36 @@ public class clicked : MonoBehaviour
 		{
 
 
-
 			ogBatRotation = TransBat.rotation;
 			ogBatPosition = TransBat.position;
 
 			Bat.GetComponent<Animator>().enabled = true;
-		    batAnimation.SetTrigger("Swing");
-		
-		//player.GetComponent<FPSController>().enabled = false;
-			//player.GetComponent<Rigidbody>().isKinematic = true; 
-			//cam.GetComponent<CamLook>().enabled = false;
-			//isFrozen = true;
+			batAnimation.SetTrigger("Swing");
 
-		}
-		
-		
-		
+			StartCoroutine(Reset());
 		
 		
 	}
+		
+		
+	}
+
+
+	IEnumerator Reset()
+	{
+
+
+		yield return new WaitForEndOfFrame();
+		//resetArms = false;
+		
+		TransBat.rotation = ogBatRotation; 
+		TransBat.position = ogBatPosition;
+			
+	}
+		
+		
+	
+
+		
 	
 }

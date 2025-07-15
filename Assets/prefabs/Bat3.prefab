@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7779055176811048698}
   - component: {fileID: 5164479031450056030}
   - component: {fileID: 3434916664115186980}
+  - component: {fileID: 8724230142071470244}
   m_Layer: 0
   m_Name: Bat3
   m_TagString: Untagged
@@ -28,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8139197530653314863}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.027746143, y: 0.82621515, z: -0.32274392, w: 0.4609067}
+  m_LocalRotation: {x: 0.027745467, y: 0.8262155, z: -0.32274443, w: 0.46090588}
   m_LocalPosition: {x: 15.64, y: 13.3, z: 22.18}
-  m_LocalScale: {x: 0.01312337, y: 0.01312337, z: 0.01312337}
+  m_LocalScale: {x: 0.0073233084, y: 0.009994852, z: 0.007323309}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,9 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   cam: {fileID: 0}
-  armOffset: {x: 0, y: 0, z: 0}
-  armOffset2: {x: 0, y: 0, z: 0}
-  Bat: {fileID: 0}
+  batOffset: {x: 1, y: -1, z: 0}
+  batOffset2: {x: 25, y: 25, z: 20}
+  Bat: {fileID: 8139197530653314863}
   TransBat: {fileID: 8917107107957020053}
   batAnimation: {fileID: 3434916664115186980}
 --- !u!95 &3434916664115186980
@@ -120,7 +121,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 914e4843c2952d448b8f37da624990ee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -129,3 +130,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &8724230142071470244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8139197530653314863}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.57289, y: 277.70306, z: 24.308882}
+  m_Center: {x: 1.2283984, y: 122.57741, z: -4.009568}
