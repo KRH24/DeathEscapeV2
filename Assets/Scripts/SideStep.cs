@@ -4,66 +4,46 @@ using UnityEngine;
 
 public class Sidestep : MonoBehaviour
 {
-	
-	public Transform Player;
-	public Rigidbody rb;
-	public float sideStepForce = 50f;
-	bool hasPressed = false; 
-	int count = 0;
-	
-	private float lastLapTime = 0f; 
-	private float threshold = 0.3f;
-  
-    // Update is called once per frame
+    public Transform orientation; // Reference to your camera-facing orientation
+    public Rigidbody rb;
+    public float sideStepForce = 50f;
+    private float lastTapTime = 0f;
+    private float threshold = 0.3f;
+
     void Update()
     {
-	    if(Input.GetKeyDown(KeyCode.A)){
-	    
-	    	hasPressed = true;
-	    	//count += 1;
-	    	
-	    	float CurrentTime = Time.time;
-	    	
-	    	if(CurrentTime - lastLapTime <= threshold){
-	    	
-		    	Vector3 sidestep = Player.right * -sideStepForce;
-		    	rb.AddForce( sidestep, ForceMode.Impulse);
-		    lastLapTime = 0f;
-		    
-		    }
-		    else{
-		    	
-			    lastLapTime = CurrentTime;
-		    	
-		    }
-		    
-	    }
-		    if(Input.GetKeyDown(KeyCode.D)){
-	    	
-			    hasPressed = true;
-			    //count += 1;
-	    	
-			    float CurrentTime = Time.time;
-	    	
-			    if(CurrentTime - lastLapTime <= threshold){
-	    	
-				    Vector3 sidestep = Player.right * sideStepForce;
-				    rb.AddForce( sidestep, ForceMode.Impulse);
-				    lastLapTime = 0f;
-		    
-			    }
-			    else{
-		    	
-				    lastLapTime = CurrentTime;
-		    	
-			    }
-		       
-		    	
-	    	
-		    }
-	    
-	    
-    
-    }
+        // Sidestep Left (Double-Tap A)
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            float currentTime = Time.time;
 
+            if (currentTime - lastTapTime <= threshold)
+            {
+                Vector3 sidestep = -orientation.right * sideStepForce;
+                rb.AddForce(sidestep, ForceMode.Impulse);
+                lastTapTime = 0f; // reset
+            }
+            else
+            {
+                lastTapTime = currentTime;
+            }
+        }
+
+        // Sidestep Right (Double-Tap D)
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            float currentTime = Time.time;
+
+            if (currentTime - lastTapTime <= threshold)
+            {
+                Vector3 sidestep = orientation.right * sideStepForce;
+                rb.AddForce(sidestep, ForceMode.Impulse);
+                lastTapTime = 0f;
+            }
+            else
+            {
+                lastTapTime = currentTime;
+            }
+        }
+    }
 }
