@@ -10,7 +10,6 @@ public class clicked : MonoBehaviour
 	[SerializeField] public Vector3 armOffset2;
 	public GameObject Bat; 
 	public Transform TransBat;
-	private bool isFrozen = false; 
 	private Vector3 ogBatPosition; 
 	private Quaternion ogBatRotation;
 	public Animator batAnimation;
@@ -38,8 +37,6 @@ public class clicked : MonoBehaviour
 			batAnimation.SetTrigger("Swing");
 
 			StartCoroutine(Reset());
-		
-		
 	}
 		
 		
