@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 
-public class clicked : MonoBehaviour
+public class Clicked : MonoBehaviour
 {
     public GameObject player;
 	public Transform cam;
@@ -13,13 +13,19 @@ public class clicked : MonoBehaviour
 	private Vector3 ogBatPosition; 
 	private Quaternion ogBatRotation;
 	public Animator batAnimation;
-	
-	
-	void Start(){
-		
-		
+
+
+	void Start()
+	{
+
+
 		TransBat.position = cam.position + cam.rotation * armOffset;
 		TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
+
+		ogBatRotation = TransBat.rotation;
+		ogBatPosition = TransBat.position;
+
+		batAnimation = Bat.GetComponent<Animator>();
 		
 	}
 	
@@ -29,9 +35,6 @@ public class clicked : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 
-
-			ogBatRotation = TransBat.rotation;
-			ogBatPosition = TransBat.position;
 
 			Bat.GetComponent<Animator>().enabled = true;
 			batAnimation.SetTrigger("Swing");
@@ -47,10 +50,10 @@ public class clicked : MonoBehaviour
 	{
 
 
-		yield return new WaitForEndOfFrame();
+		yield return new WaitForSeconds(0.5f);
 		//resetArms = false;
 		
-		TransBat.rotation = ogBatRotation; 
+		TransBat.rotation = ogBatRotation;
 		TransBat.position = ogBatPosition;
 			
 	}
