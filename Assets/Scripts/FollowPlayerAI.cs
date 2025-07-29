@@ -9,6 +9,7 @@ public class FollowPlayerAI : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float maxHealth = 3;
     private float currentHealth;
+    [SerializeField] private GameObject levelCompleteScreen;
 
     [SerializeField] private EnemyHealth healthbar;
 
@@ -51,7 +52,10 @@ public class FollowPlayerAI : MonoBehaviour
 
             if (currentHealth <= 0f)
             {
+
                 Destroy(gameObject);
+                levelCompleteScreen.SetActive(true);
+                Debug.Log("Level Complete!");
             }
             else
             {

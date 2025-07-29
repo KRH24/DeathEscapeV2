@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private Image HealthBarSprite;
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float maxHealth = 3f;
     [SerializeField] private GameObject levelCompleteScreen;
 
     private float currentHealth;
@@ -47,6 +47,7 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        Debug.Log("Enemy dead");
 
         if (levelCompleteScreen != null)
             levelCompleteScreen.SetActive(true);
