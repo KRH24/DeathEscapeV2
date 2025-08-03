@@ -13,17 +13,15 @@ public class Clicked : MonoBehaviour
 	private Vector3 ogBatPosition; 
 	private Quaternion ogBatRotation;
 	public Animator batAnimation;
+	bool resetArms = false;
 
 
 	void Start()
 	{
 
-
+    
 		TransBat.position = cam.position + cam.rotation * armOffset;
 		TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
-
-		ogBatRotation = TransBat.rotation;
-		ogBatPosition = TransBat.position;
 
 		batAnimation = Bat.GetComponent<Animator>();
 		
@@ -34,13 +32,10 @@ public class Clicked : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
 		{
-
-
-			Bat.GetComponent<Animator>().enabled = true;
 			batAnimation.SetTrigger("Swing");
-
+	        resetArms = false;
 			StartCoroutine(Reset());
-	}
+	    }
 		
 		
 	}
@@ -49,17 +44,21 @@ public class Clicked : MonoBehaviour
 	IEnumerator Reset()
 	{
 
+	yield return new WaitForSeconds(0.5f);
+	resetArms = true;
 
-		yield return new WaitForSeconds(0.5f);
-		//resetArms = false;
-		
-		TransBat.rotation = ogBatRotation;
-		TransBat.position = ogBatPosition;
-			
 	}
-		
-		
-	
+
+
+	void LateUpdate()
+	{
+		if (resetArms)
+		{
+			Debug.Log("Resetting Arms");
+			TransBat.position = cam.position + cam.rotation * armOffset;
+			TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
+		}
+	}
 
 		
 	
