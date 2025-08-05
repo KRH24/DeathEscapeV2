@@ -7,6 +7,7 @@ public class FollowPlayerAI : MonoBehaviour
     public Transform player;
     public float speed = 5f;
     private Rigidbody rb;
+    public float knockBackForce = 1f;
     [SerializeField] private float maxHealth = 3;
     private float currentHealth;
     [SerializeField] private GameObject levelCompleteScreen;
@@ -46,8 +47,13 @@ public class FollowPlayerAI : MonoBehaviour
         if (other.CompareTag("Bat"))
         {
             Debug.Log("Enemy got hit by Bat");
-            Vector3 knockbackDir = (transform.position - other.transform.position).normalized;
-            rb.AddForce(knockbackDir * 100f, ForceMode.Impulse);
+            //Vector3 knockbackDir = (transform.position - other.transform.position).normalized;
+            //rb.AddForce(knockbackDir * 100f, ForceMode.Impulse);
+           // rb.linearVelocity = knockbackDir * 10f;
+            Vector3 pushDirection = other.transform.position - transform.position;
+            pushDirection = -pushDirection.normalized;
+            rb.AddForce(knockBackForce * pushDirection, ForceMode.Impulse);
+            //GetComponent<Rigidbody>().AddForce(pushDirection * knockBackForce * 10);
             currentHealth -= 1.0f;
 
             if (currentHealth <= 0f)
