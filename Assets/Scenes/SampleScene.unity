@@ -4194,6 +4194,7 @@ GameObject:
   - component: {fileID: 1548648450}
   - component: {fileID: 1548648449}
   - component: {fileID: 1548648452}
+  - component: {fileID: 1548648453}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -4432,6 +4433,29 @@ MonoBehaviour:
   level1PigoenAttack: 1
   level1SkeletonAttack: 7
   hitCooldown: 1
+--- !u!114 &1548648453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548648442}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c99fd6de3f53d246b11538dd652808a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  wallRunForce: 30
+  maxWallRunTime: 0
+  wallCheckDistance: 0
+  minJumpHeight: 0
+  orientation: {fileID: 0}
 --- !u!1 &1550686210
 GameObject:
   m_ObjectHideFlags: 0
