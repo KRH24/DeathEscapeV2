@@ -1,65 +1,57 @@
 using UnityEngine;
 using System.Collections;
 
-
 public class Clicked : MonoBehaviour
 {
-    public GameObject player;
-	public Transform cam;
-	[SerializeField] public Vector3 armOffset;
-	[SerializeField] public Vector3 armOffset2;
-	public GameObject Bat; 
-	public Transform TransBat;
-	private Vector3 ogBatPosition; 
-	private Quaternion ogBatRotation;
-	public Animator batAnimation;
-	bool resetArms = false;
+    public Transform cam;
+    [SerializeField] public Vector3 armOffset;
+    [SerializeField] public Vector3 armOffset2;
+    public GameObject Bat; 
+    public Transform TransBat;
+    public Animator batAnimation;
 
+    private bool isSwinging = false;
 
-	void Start()
-	{
+    void Start()
+    {
+        batAnimation = Bat.GetComponent<Animator>();
+        UpdateBatPosition(); // Initialize position
+    }
 
-    
-		TransBat.position = cam.position + cam.rotation * armOffset;
-		TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !isSwinging)
+        {
+            batAnimation.SetTrigger("Swing");
+            StartCoroutine(SwingCooldown());
+        }
+    }
 
-		batAnimation = Bat.GetComponent<Animator>();
-		
-	}
-	
-	
-	void Update(){
+    void LateUpdate()
+    {
+        if (!isSwinging)
+        {
+            UpdateBatPosition();
+        }
+    }
 
-		if (Input.GetMouseButtonDown(0))
-		{
-			batAnimation.SetTrigger("Swing");
-	        resetArms = false;
-			StartCoroutine(Reset());
-	    }
-		
-		
-	}
+    void UpdateBatPosition()
+    {
+        TransBat.position = cam.position + cam.rotation * armOffset;
+        //TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
+		TransBat.rotation = Quaternion.Euler(0, cam.rotation.eulerAngles.y, 0) * Quaternion.Euler(armOffset2);
+		Debug.Log("Restoring Rotation: " + TransBat.rotation.eulerAngles);
+    }
 
+    IEnumerator SwingCooldown()
+    {
+        isSwinging = true;
+        yield return new WaitForSeconds(0.5f); // Match animation length
+        isSwinging = false;
 
-	IEnumerator Reset()
-	{
+		Bat.transform.localPosition = Vector3.zero;
+        Bat.transform.localRotation = Quaternion.identity;
 
-	yield return new WaitForSeconds(0.5f);
-	resetArms = true;
-
-	}
-
-
-	void LateUpdate()
-	{
-		if (resetArms)
-		{
-			Debug.Log("Resetting Arms");
-			TransBat.position = cam.position + cam.rotation * armOffset;
-			TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
-		}
-	}
-
-		
-	
+		UpdateBatPosition();
+    }
 }

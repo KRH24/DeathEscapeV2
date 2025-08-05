@@ -3463,7 +3463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297466296}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.29732707, y: -0, z: -0, w: 0.9547757}
+  m_LocalRotation: {x: -0.29732713, y: -0, z: -0.000000014901161, w: 0.95477575}
   m_LocalPosition: {x: 15.94363, y: 13.57, z: 21.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3483,10 +3483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c277f60d6c47b49a692fbc3d6a9a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1548648442}
   cam: {fileID: 330585546}
-  armOffset: {x: 1, y: -1, z: 2}
-  armOffset2: {x: -25, y: -50, z: 0}
+  armOffset: {x: 1, y: -1.5, z: 2}
+  armOffset2: {x: 0, y: 0, z: 0}
   Bat: {fileID: 1436389097}
   TransBat: {fileID: 1297466297}
   batAnimation: {fileID: 2865531662858628399}
