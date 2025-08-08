@@ -13,6 +13,7 @@ public class FollowPlayerAI : MonoBehaviour
     [SerializeField] private GameObject levelCompleteScreen;
 
     [SerializeField] private EnemyHealth healthbar;
+    public GameObject[] Enemies;
 
 
 
@@ -55,18 +56,22 @@ public class FollowPlayerAI : MonoBehaviour
             rb.AddForce(knockBackForce * pushDirection, ForceMode.Impulse);
             //GetComponent<Rigidbody>().AddForce(pushDirection * knockBackForce * 10);
             currentHealth -= 1.0f;
-
-            if (currentHealth <= 0f)
+            for (int i = 0; i < Enemies.Length; i++)
             {
+                if (currentHealth <= 0f)
+                {
 
-                Destroy(gameObject);
-                levelCompleteScreen.SetActive(true);
-                Debug.Log("Level Complete!");
-            }
-            else
-            {
-                
-            healthbar.UpdateHealthBar(maxHealth, currentHealth);
+                    //Destroy(gameObject);
+                    //Destroy(Enemies[]);
+                    levelCompleteScreen.SetActive(true);
+                    Debug.Log("Level Complete!");
+                }
+                else
+                {
+
+                    healthbar.UpdateHealthBar(maxHealth, currentHealth);
+
+                }
 
             }
 
