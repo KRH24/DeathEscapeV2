@@ -39,7 +39,7 @@ public class Clicked : MonoBehaviour
     {
         TransBat.position = cam.position + cam.rotation * armOffset;
         //TransBat.rotation = cam.rotation * Quaternion.Euler(armOffset2);
-		TransBat.rotation = Quaternion.Euler(0, cam.rotation.eulerAngles.y, 0) * Quaternion.Euler(armOffset2);
+		TransBat.rotation = Quaternion.Euler(0, cam.rotation.eulerAngles.y, -20) * Quaternion.Euler(armOffset2);
 		Debug.Log("Restoring Rotation: " + TransBat.rotation.eulerAngles);
     }
 

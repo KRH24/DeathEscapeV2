@@ -10,10 +10,10 @@ public class FollowPlayerAI : MonoBehaviour
     public float knockBackForce = 1f;
     [SerializeField] private float maxHealth = 3;
     private float currentHealth;
-    [SerializeField] private GameObject levelCompleteScreen;
+    //[SerializeField] private GameObject levelCompleteScreen;
 
     [SerializeField] private EnemyHealth healthbar;
-    public GameObject[] Enemies;
+    
 
 
 
@@ -56,15 +56,12 @@ public class FollowPlayerAI : MonoBehaviour
             rb.AddForce(knockBackForce * pushDirection, ForceMode.Impulse);
             //GetComponent<Rigidbody>().AddForce(pushDirection * knockBackForce * 10);
             currentHealth -= 1.0f;
-            for (int i = 0; i < Enemies.Length; i++)
-            {
+           
                 if (currentHealth <= 0f)
                 {
-
-                    //Destroy(gameObject);
-                    //Destroy(Enemies[]);
-                    levelCompleteScreen.SetActive(true);
-                    Debug.Log("Level Complete!");
+                    GameManager.instance.EnemiesDefeated();
+                    Destroy(gameObject);
+                    
                 }
                 else
                 {
@@ -73,7 +70,7 @@ public class FollowPlayerAI : MonoBehaviour
 
                 }
 
-            }
+            
 
         }
 

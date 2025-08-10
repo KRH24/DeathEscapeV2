@@ -2097,8 +2097,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 676815168}
+  - component: {fileID: 676815169}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2119,6 +2120,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676815169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676815167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2945d71061a51d249bec46e37ff978a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesAlive: 2
+  levelCompleteScreen: {fileID: 1550686210}
 --- !u!1001 &681769927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3369,7 +3384,6 @@ MonoBehaviour:
   speed: 3
   knockBackForce: 2
   maxHealth: 3
-  levelCompleteScreen: {fileID: 1550686210}
   healthbar: {fileID: 2126209189}
 --- !u!65 &1257041056
 BoxCollider:
@@ -3776,8 +3790,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 330585546}
-  armOffset: {x: 1, y: -1.5, z: 2}
-  armOffset2: {x: 0, y: 0, z: 0}
+  armOffset: {x: 1, y: -2, z: 2}
+  armOffset2: {x: 0, y: 20, z: 0}
   Bat: {fileID: 1436389097}
   TransBat: {fileID: 1297466297}
   batAnimation: {fileID: 2865531662858628399}
@@ -4195,6 +4209,7 @@ GameObject:
   - component: {fileID: 1548648449}
   - component: {fileID: 1548648452}
   - component: {fileID: 1548648453}
+  - component: {fileID: 1548648454}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -4456,6 +4471,21 @@ MonoBehaviour:
   wallCheckDistance: 0
   minJumpHeight: 0
   orientation: {fileID: 0}
+--- !u!114 &1548648454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548648442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde3cfcda34bf33488c19e094a093fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doubleJumpForce: 7
+  jumpKey: 32
+  doubleJumpUnlocked: 1
 --- !u!1 &1550686210
 GameObject:
   m_ObjectHideFlags: 0
@@ -4694,8 +4724,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LEVEL COMPLETE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e935a060228b6d84e92eafa5b4bbaf5f, type: 2}
+  m_sharedMaterial: {fileID: 412023145160555936, guid: e935a060228b6d84e92eafa5b4bbaf5f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5110,8 +5140,8 @@ Transform:
   m_GameObject: {fileID: 1729680826}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0055764006, y: -0.96597433, z: 0.012350715, w: 0.25828278}
-  m_LocalPosition: {x: -0, y: 129.7, z: -3}
-  m_LocalScale: {x: 22.687212, y: 254.4317, z: 20.892282}
+  m_LocalPosition: {x: 0.6, y: 219.3, z: -6.3}
+  m_LocalScale: {x: 22.687212, y: 85.117355, z: 20.892282}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2865531662858628391}
@@ -5135,8 +5165,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.2745917, z: 1}
+  m_Center: {x: 0.002911349, y: -0.13730524, z: -0.0038668143}
 --- !u!1001 &1777606877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6028,7 +6058,6 @@ MonoBehaviour:
   speed: 3
   knockBackForce: 2
   maxHealth: 3
-  levelCompleteScreen: {fileID: 1550686210}
   healthbar: {fileID: 1262573552}
 --- !u!65 &2089743494
 BoxCollider:
@@ -6352,6 +6381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5164479031450056030, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
+    - {fileID: 8724230142071470244, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8917107107957020053, guid: 4283f6cbc55fc5549bc8ee4b520f4320, type: 3}
@@ -6421,8 +6451,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 17.572874, y: 278.135, z: 24.308891}
-  m_Center: {x: 1.2274456, y: 122.793755, z: -4.0089107}
+  m_Size: {x: 17.572868, y: 104.74312, z: 24.308891}
+  m_Center: {x: 1.2268758, y: 209.48962, z: -4.0085435}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
